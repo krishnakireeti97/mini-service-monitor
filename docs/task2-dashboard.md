@@ -483,4 +483,9 @@ docker stop api                        # -> banner "HTTP 502 Bad Gateway"
 open "http://localhost:8080/?api=http://localhost:3000"   # -> CORS, unless ALLOW_CORS=1
 ```
 
-Tests: `node --test dev/`
+Tests: `node --test dev/*.test.cjs`
+
+> CI caught one thing on the first run: `node --test dev/` (a directory) works
+> on Node 26 but not on Node 22, which tries to `require` the directory and
+> fails with `Cannot find module .../dev`. Listing the files explicitly works
+> on both, so that is what the workflow runs.

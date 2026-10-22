@@ -24,20 +24,20 @@ jobs:
     name: Contract + dashboard tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
       - name: Run the test suite
-        run: node --test dev/
+        run: node --test dev/*.test.cjs
 
   docker:
     name: Build image and smoke test it
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Build the image
         run: docker build -f dev/Dockerfile.stub -t monitor-stub:${{ github.sha }} .
