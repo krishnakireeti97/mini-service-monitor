@@ -10,7 +10,7 @@ on:
       - 'dev/**'
       - '.github/workflows/dashboard.yml'
   push:
-    branches: [main]
+    branches: ['**']
     paths:
       - 'public/**'
       - 'dev/**'
